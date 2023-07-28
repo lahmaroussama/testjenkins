@@ -37,11 +37,17 @@ pipeline {
          
         stage('Scan') {
             steps {
-                withSonarQubeEnv(installationName: 'sq1') { 
-                sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+             def mavenHome = tool 'maven'
+                    withSonarQubeEnv(installationName: 'sq1') {
+                        sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN} -f pom.xml"
+                    }
         }
       }
     }
+            def mavenHome = tool 'maven'
+                    withSonarQubeEnv(installationName: 'sq1') {
+                        sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN} -f pom.xml"
+                    }
   
 
     
