@@ -34,11 +34,7 @@ pipeline {
             }
         }
 
-       stage('SonarQube Analysis') {
-            environment {
-                // Define SonarQube server details
-               
-            }
+       stage('SonarQube Analysis') {           
             steps {
                 // Run SonarQube analysis using the SonarQube Scanner
                 // Make sure you have installed the SonarQube Scanner plugin in Jenkins.
