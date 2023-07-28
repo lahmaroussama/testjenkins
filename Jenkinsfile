@@ -34,19 +34,16 @@ pipeline {
             }
         }
 
-       stage('SonarQube Analysis') {           
-            steps {
-                // Run SonarQube analysis using the SonarQube Scanner
-                // Make sure you have installed the SonarQube Scanner plugin in Jenkins.
-                // Replace 'pom.xml' with the actual path to your project's pom.xml file.
-                script {
-                    def mavenHome = tool 'maven-1'
-                    withSonarQubeEnv('SonarQube') {
-                        sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN} -f pom.xml"
-                    }
-                }
-            }
+         stages {
+    stage('Scan') {
+      steps {
+        withSonarQubeEnv(installationName: 'sq1') { 
+          sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
         }
+      }
+    }
+  }
+
     
     }
 
