@@ -37,13 +37,14 @@ pipeline {
          
         stage('Scan SONAR') {
             steps {
+                  script {
              def mavenHome = tool 'maven'
                     withSonarQubeEnv(installationName: 'sq1') {
                         sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN} -f pom.xml"
                     }
         }
       }
-    
+        }
            
   
 
