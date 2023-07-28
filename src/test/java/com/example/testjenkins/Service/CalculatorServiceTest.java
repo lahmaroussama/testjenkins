@@ -27,7 +27,7 @@ class CalculatorServiceTest {
     public void testAdd() {
         int a = 5;
         int b = 10;
-        int expectedResult = 15;
+        int expectedResult = 17;
         when(calculatorService.add(a, b)).thenReturn(expectedResult);
         int actualResult = calculatorService.add(a, b);
         assertEquals(expectedResult, actualResult, "Adding positive numbers should return the correct sum.");
