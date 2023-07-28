@@ -37,23 +37,5 @@ pipeline {
        
     }
 
-    post {
-        always {
-            // Archive the generated artifact (JAR, WAR, etc.) for future reference
-            // Replace 'target/*.jar' with the actual path to your project's generated artifact.
-            archiveArtifacts 'target/*.jar'
-
-            // Publish JUnit test results
-            // Replace 'target/surefire-reports/*.xml' with the actual path to your test result XML files.
-            junit 'target/surefire-reports/*.xml'
-        }
-
-        success {
-            // Any additional post-build actions you want to perform on successful builds.
-        }
-
-        failure {
-            // Any additional post-build actions you want to perform on failed builds.
-        }
-    }
+   
 }
