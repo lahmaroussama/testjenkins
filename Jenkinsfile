@@ -15,8 +15,8 @@ pipeline {
                 // Replace 'pom.xml' with the actual path to your project's pom.xml file.
                 script {
                     def mavenHome = tool 'maven-1'
-                    def jdkHome = tool 'jdk'
-                    sh "${jdkHome}/bin/java -version"
+           
+           
                     sh "${mavenHome}/bin/mvn -version"
                     sh "${mavenHome}/bin/mvn clean install -f pom.xml"
                 }
