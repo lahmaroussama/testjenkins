@@ -14,7 +14,7 @@ pipeline {
                 // 'clean install' will build the project.
                 // Replace 'pom.xml' with the actual path to your project's pom.xml file.
                 script {
-                    def mavenHome = tool 'maven'
+                    def mavenHome = tool 'maven-1'
                     def jdkHome = tool 'jdk'
                     sh "${jdkHome}/bin/java -version"
                     sh "${mavenHome}/bin/mvn -version"
@@ -28,7 +28,7 @@ pipeline {
                 // Run unit tests and other test suites
                 // Replace 'pom.xml' with the actual path to your project's pom.xml file.
                 script {
-                    def mavenHome = tool 'maven'
+                    def mavenHome = tool 'maven-1'
                     sh "${mavenHome}/bin/mvn test -f pom.xml"
                 }
             }
