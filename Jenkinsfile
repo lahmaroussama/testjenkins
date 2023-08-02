@@ -25,8 +25,12 @@ pipeline {
             steps {
                 // Use the specified Maven installation
             withSonarQubeEnv('sq1') {
+                 script {
+                    def mavenHome = tool 'maven-1'
+                    sh "${mavenHome}/bin/mvn clean package sonar:sonar"
                     // Build your Spring Boot application
-                    sh ' clean sonar:sonar'
+                    
+                 }
                 }
             }
         }
