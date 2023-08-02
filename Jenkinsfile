@@ -24,7 +24,7 @@ pipeline {
                 // Use the specified SonarQube installation
                 withSonarQubeEnv('sq1') {
                     // Run SonarQube analysis
-                    sh 'mvn sonar:sonar'
+                    sh 'maven-1 sonar:sonar'
                 }
             }
         }
