@@ -18,15 +18,7 @@ pipeline {
                 }
             }
         }
-           stage('SonarQube Analysis') {
-            steps {
-                // Use the specified SonarQube installation
-                withSonarQubeEnv('sq1') {
-                    // Run SonarQube analysis
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
+        
         
     }
 
