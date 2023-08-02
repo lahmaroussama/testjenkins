@@ -21,7 +21,7 @@ pipeline {
    
        
 
-        stage('Build') {
+        stage('SonarQube Scanner') {
             steps {
                 // Use the specified Maven installation
             withSonarQubeEnv('sq1') {
