@@ -22,7 +22,7 @@ class CalculatorServiceTest {
     @Test
     public void testAdd() {
         int result = calculatorService.add(2, 3);
-        assertEquals(6, result);
+        assertEquals(5, result);
     }
 
     @Test
