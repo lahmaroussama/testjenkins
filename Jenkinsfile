@@ -18,6 +18,18 @@ pipeline {
                 }
             }
         }
+         stages {
+        // ... other stages remain the same
+
+        stage('Build') {
+            steps {
+                // Use the specified Maven installation
+            withSonarQubeEnv('sq1') {
+                    // Build your Spring Boot application
+                    sh ' clean sonar:sonar'
+                }
+            }
+        }
 
        
         
