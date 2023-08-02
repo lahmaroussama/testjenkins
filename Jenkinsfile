@@ -18,8 +18,8 @@ pipeline {
                 }
             }
         }
-         stages {
-        // ... other stages remain the same
+   
+       
 
         stage('Build') {
             steps {
