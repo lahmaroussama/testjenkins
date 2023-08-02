@@ -12,27 +12,46 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 class CalculatorServiceTest {
-    @Mock
     private CalculatorService calculatorService;
-
-    @InjectMocks
-    private CalculatorController calculatorController;
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        calculatorService = new CalculatorService();
     }
 
     @Test
     public void testAdd() {
-        int a = 5;
-        int b = 10;
-        int expectedResult = 17;
-        when(calculatorService.add(a, b)).thenReturn(expectedResult);
-        int actualResult = calculatorService.add(a, b);
-        assertEquals(expectedResult, actualResult, "Adding positive numbers should return the correct sum.");
-
-
+        int result = calculatorService.add(2, 3);
+        assertEquals(5, result);
     }
+
+    @Test
+    public void testSubtract() {
+        int result = calculatorService.subtract(5, 2);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void testMultiply() {
+        int result = calculatorService.multiply(4, 3);
+        assertEquals(12, result);
+    }
+
+    @Test
+    public void testDivide() {
+        double result = calculatorService.divide(10, 2);
+        assertEquals(5.0, result, 0.0001); // delta parameter for double comparison
+    }
+
+    @Test
+    public void testDivideByZero() {
+        // Test division by zero, it should throw an IllegalArgumentException
+        try {
+            calculatorService.divide(10, 0);
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Cannot divide by zero.", ex.getMessage());
+        }
+    }
+
 
 }

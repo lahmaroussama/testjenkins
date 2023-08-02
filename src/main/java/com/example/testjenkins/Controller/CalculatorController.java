@@ -18,4 +18,19 @@ public class CalculatorController {
     public int add(@PathVariable int a, @PathVariable int b) {
         return calculatorService.add(a, b);
     }
+
+    @GetMapping("/subtract/{a}/{b}")
+    public int subtract(@PathVariable int a, @PathVariable int b) {
+        return calculatorService.subtract(a, b);
+    }
+
+    @GetMapping("/multiply/{a}/{b}")
+    public int multiply(@PathVariable int a, @PathVariable int b) {
+        return calculatorService.multiply(a, b);
+    }
+
+    @GetMapping("/divide/{a}/{b}")
+    public double divide(@PathVariable int a, @PathVariable int b) {
+        return calculatorService.divide(a, b);
+    }
 }
