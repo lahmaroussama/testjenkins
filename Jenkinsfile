@@ -1,9 +1,6 @@
 pipeline {
     agent any
-     environment {
-        SONARQUBE_URL = "http://172.17.0.2:9000" // Replace with your SonarQube server URL
-        
-    }
+    
     stages {
        
 
@@ -34,8 +31,9 @@ pipeline {
                     def mavenHome = tool 'maven1'
                     sh "${mavenHome}/bin/mvn clean package sonar:sonar"
                     // Build your Spring Boot application
-                    sh 'mvn sonar:sonar -Dsonar.host.url=http://172.18.0.3:9000 -Dsonar.login=squ_0943eae08f5cdc8352c1cbfa456fc6814e4bdddf'
                  }
+                    sh 'mvn sonar:sonar -Dsonar.host.url=http://172.17.0.2:9000 -Dsonar.login=squ_0943eae08f5cdc8352c1cbfa456fc6814e4bdddf'
+                 
                 }
             }
         }
