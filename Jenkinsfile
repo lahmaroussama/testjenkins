@@ -29,7 +29,7 @@ pipeline {
             withSonarQubeEnv('sq1') {
                  script{
                     def mavenHome = tool 'maven1'
-                    sh "${mavenHome}/bin/mvn sonar:sonar "
+                    sh "${mavenHome}/bin/mvn sonar:sonar"
                  }
                     
               
