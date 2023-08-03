@@ -17,7 +17,7 @@ pipeline {
                     def mavenHome = tool 'maven1'
                       sh "${mavenHome}/bin/mvn clean package"
                     sh "${mavenHome}/bin/mvn test"
-                    sh 'mvn sonar:sonar -Dsonar.host.url=http://172.18.0.3:9000 -Dsonar.login=squ_b3452d6629db6a310d42645b4361740d1e0e8bc9'
+                    
                 }
                
             }
@@ -34,7 +34,7 @@ pipeline {
                     def mavenHome = tool 'maven1'
                     sh "${mavenHome}/bin/mvn clean package sonar:sonar"
                     // Build your Spring Boot application
-                    
+                    sh 'mvn sonar:sonar -Dsonar.host.url=http://172.18.0.3:9000 -Dsonar.login=squ_0943eae08f5cdc8352c1cbfa456fc6814e4bdddf'
                  }
                 }
             }
