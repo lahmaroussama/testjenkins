@@ -29,9 +29,9 @@ pipeline {
             withSonarQubeEnv('sq1') {
                  script{
                     def mavenHome = tool 'maven1'
-                    sh "${mavenHome}/bin/mvn sonar:sonar -X"
-                 }
                     sh "${mavenHome}/bin/mvn sonar:sonar -Dsonar.host.url=http://172.17.0.2:9000 -Dsonar.login=squ_0943eae08f5cdc8352c1cbfa456fc6814e4bdddf"
+                 }
+                    
                  
                 }
             }
