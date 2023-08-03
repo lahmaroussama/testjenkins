@@ -16,7 +16,7 @@ pipeline {
                     sh "${mavenHome}/bin/mvn test"
                     
                 }
-               
+                   'mvn clean package'
             }
         }
         
