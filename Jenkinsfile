@@ -14,7 +14,7 @@ pipeline {
                 // 'clean install' will build the project and run the tests.
                 // Replace 'pom.xml' with the actual path to your project's pom.xml file.
                 script {
-                    def mavenHome = tool 'maven-1'
+                    def mavenHome = tool 'maven1'
                  
                     sh "${mavenHome}/bin/mvn -version"
                     sh "${mavenHome}/bin/mvn clean install -f pom.xml"
@@ -31,7 +31,7 @@ pipeline {
                 // Use the specified Maven installation
             withSonarQubeEnv('sq1') {
                  script {
-                    def mavenHome = tool 'maven-1'
+                    def mavenHome = tool 'maven1'
                     sh "${mavenHome}/bin/mvn clean package sonar:sonar"
                     // Build your Spring Boot application
                     
