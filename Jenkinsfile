@@ -5,13 +5,7 @@ pipeline {
         
     }
     stages {
-        stage('Build mvn') {
-            steps {
-                withMaven(maven: 'maven-1'){
-                    sh 'mvn clean package' 
-                }  
-            }
-        }
+       
 
         stage('Build and Test') {
             steps {
