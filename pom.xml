@@ -15,7 +15,16 @@
     <description>testjenkins</description>
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>maven_3</id>
+            <name>maven_3</name>
+            <url>https://localhost:8081</url>
+        </snapshotRepository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
