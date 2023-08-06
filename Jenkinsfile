@@ -6,7 +6,7 @@ pipeline {
         NEXUS_URL = "172.21.0.1:8081"
         NEXUS_REPOSITORY = "maven-repo"
         NEXUS_CREDENTIAL_ID = "nexus_3"
-        MAVEN_HOME = tool name: 'Maven', type: 'maven1'
+        MAVEN_HOME = tool 'maven1'
          NEXUS_REPO_SNAPSHOTS = 'maven-repo'
     }
     stages {
