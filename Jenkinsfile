@@ -7,7 +7,8 @@ pipeline {
         NEXUS_REPOSITORY = "maven-repo"
         NEXUS_CREDENTIAL_ID = "nexus_3"
         MAVEN_HOME = tool 'maven1'
-         NEXUS_REPO_SNAPSHOTS = 'maven-repo'
+         NEXUS_REPO_SNAPSHOTS = 'pom.0.0.1-SNAPSHOT'
+         NEXUS_REPO_RELEASES = 'maven-repo'
     }
     stages {
        
@@ -37,6 +38,14 @@ pipeline {
             steps {
                 // Deploy the snapshot artifacts to Nexus
                 sh "${MAVEN_HOME}/bin/mvn deploy -Dmaven.deploy.skip=true -Dmaven.test.skip=true -DaltDeploymentRepository=snapshot::default::${NEXUS_URL}repository/${NEXUS_REPO_SNAPSHOTS}/"
+            }
+        }
+
+         stage('Deploy to Nexus Releases') {
+           
+            steps {
+                // Deploy the release artifacts to Nexus
+                sh "${MAVEN_HOME}/bin/mvn deploy -Dmaven.deploy.skip=true -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::${NEXUS_URL}repository/${NEXUS_REPO_RELEASES}/"
             }
         }
         
