@@ -22,7 +22,7 @@
         <snapshotRepository>
             <id>maven_3</id>
             <name>maven_3</name>
-            <url>https://localhost:8081</url>
+            <url>http://172.21.0.1:8081/repository/maven-repo</url>
         </snapshotRepository>
     </distributionManagement>
     <dependencies>
