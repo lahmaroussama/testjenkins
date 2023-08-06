@@ -15,13 +15,13 @@
     <description>testjenkins</description>
     <properties>
         <java.version>1.8</java.version>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
     <distributionManagement>
         <repository>
-            <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
+            <id>maven-repo</id>
+            <name>maven-repo</name>
             <url>http://172.18.0.4:8081/repository/maven-repo/</url>
         </repository>
         <snapshotRepository>
