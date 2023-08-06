@@ -46,9 +46,6 @@ pipeline {
         }
 
         stage('Deploy to Nexus Snapshots') {
-            when {
-                branch 'develop' // You can specify the branch for snapshot deployment
-            }
             steps {
                 // Deploy the snapshot artifacts to Nexus
                 sh "${MAVEN_HOME}/bin/mvn deploy -Dmaven.deploy.skip=true -Dmaven.test.skip=true -DaltDeploymentRepository=snapshot::default::${NEXUS_URL}repository/${NEXUS_REPO_SNAPSHOTS}/"
