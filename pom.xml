@@ -30,7 +30,7 @@
             <url>http://172.18.0.4:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-    <dependencies>
+    <dependencies> 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
