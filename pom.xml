@@ -29,7 +29,7 @@
             <name>maven_3</name>
             <url>http://172.18.0.4:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
-    </distributionManagement>
+    </distributionManagement> 
     <dependencies> 
         <dependency>
             <groupId>org.springframework.boot</groupId>
