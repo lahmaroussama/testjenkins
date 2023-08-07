@@ -29,6 +29,19 @@ pipeline {
         
    
         
+        stage('SonarQube Scanner') {
+            steps {
+                // Use the specified Maven installation
+            withSonarQubeEnv('sq1') {
+                 script{
+                    def mavenHome = tool 'maven1'
+                    sh "${mavenHome}/bin/mvn sonar:sonar"
+                 }
+
+
+                }
+            }
+        }
 
       
 
