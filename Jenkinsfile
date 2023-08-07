@@ -5,8 +5,8 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.18.0.4:8081"
         NEXUS_REPOSITORY = "maven-repo"
-        NEXUS_CREDENTIAL_ID = "nexus_3"
-        MAVEN_HOME = tool 'maven1'
+        NEXUS_CREDENTIAL_ID = "nexus-user"
+       
     }
     stages {
        
