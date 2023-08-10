@@ -30,7 +30,7 @@ pipeline {
      
         stage('Build Docker Image') {
       steps {
-        sh 'docker build -t oussama00001/jenkins-docker-hub .'
+        sh 'docker build -t oussama00001/testjenkins-0.0.1 .'
       }
     }
     stage('Login Docker Image') {
@@ -40,7 +40,7 @@ pipeline {
     }
     stage('Push Docker Image') {
       steps {
-        sh 'docker push lloydmatereke/jenkins-docker-hub'
+        sh 'docker push oussama00001/jenkins-docker-hub'
       }
     }
 
