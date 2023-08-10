@@ -6,10 +6,10 @@ pipeline {
         NEXUS_URL = "172.18.0.4:8081"
         NEXUS_REPOSITORY = "maven-repo"
         NEXUS_CREDENTIAL_ID = "nexus-user"
-       
+
     }
     stages {
-        
+
 
         stage('Build and Test') {
             steps {
@@ -21,14 +21,14 @@ pipeline {
                     def mavenHome = tool 'maven1'
                       sh "${mavenHome}/bin/mvn clean package"
                     sh "${mavenHome}/bin/mvn test"
-                    
+
                 }
-               
+
             }
         }
-        
-   
-        
+
+
+
         stage('SonarQube Scanner') {
             steps {
                 // Use the specified Maven installation
@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-      
+
 
        stage("Publish to Nexus Repository Manager") {
             steps {
@@ -80,11 +80,9 @@ pipeline {
                 }
             }
         }
-        
-        
+
+
     }
 
-    
+
 }
-
-
