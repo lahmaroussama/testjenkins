@@ -10,7 +10,7 @@ pipeline {
     }
     stages {
 
-
+     
         stage('Build and Test') {
             steps {
                 // Set up JDK and Maven in Jenkins Global Tool Configuration.
@@ -26,7 +26,13 @@ pipeline {
 
             }
         }
-
+        stage('Build Docker Image') {
+            steps {
+                script {
+                  sh 'docker build -t devopshint/testjenkins-0.0.1 .'
+                }
+            }
+        }
 
 
         stage('SonarQube Scanner') {
