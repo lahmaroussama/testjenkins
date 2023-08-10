@@ -29,7 +29,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t testjenkins/testjenkins-0.0.1 .'
+                  sh 'docker build -t testjenkins/testjenkins-0.0.1 .' 
                 }
             }
         }
