@@ -6,6 +6,7 @@ pipeline {
         NEXUS_URL = "172.18.0.4:8081"
         NEXUS_REPOSITORY = "maven-repo"
         NEXUS_CREDENTIAL_ID = "nexus-user"
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
 
     }
     stages {
@@ -26,13 +27,22 @@ pipeline {
 
             }
         }
+     
         stage('Build Docker Image') {
-            steps {
-                script {
-                  sh 'docker build -t testjenkins/testjenkins-0.0.1 .' 
-                }
-            }
-        }
+      steps {
+        sh 'docker build -t oussama00001/jenkins-docker-hub .'
+      }
+    }
+    stage('Login Docker Image') {
+      steps {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+    }
+    stage('Push Docker Image') {
+      steps {
+        sh 'docker push lloydmatereke/jenkins-docker-hub'
+      }
+    }
 
 
         stage('SonarQube Scanner') {
