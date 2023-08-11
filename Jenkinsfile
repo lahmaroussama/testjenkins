@@ -27,7 +27,19 @@ pipeline {
 
             }
         }
-     
+     stage('Build and Push Docker Image') {
+            steps {
+                script {
+                    // Build the Docker image
+                    sh 'docker build -t oussama00001/testjenkins .'
+                    
+                    // Push the Docker image to a registry
+                    withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com') {
+                        sh 'docker push oussama00001/testjenkins'
+                    }
+                }
+            }
+        }
         stage('Build Docker Image') {
       steps {
         sh 'docker build -t oussama00001/testjenkins .'
