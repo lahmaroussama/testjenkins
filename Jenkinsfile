@@ -39,8 +39,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('', DOCKERHUB_CREDENTIALS) {
-                        dockerImage.push()
+                     sh 'docker push oussama00001/testjenkins'
                     }
                 }
             }
