@@ -27,6 +27,7 @@ pipeline {
 
             }
         }
+        node { 
         stage('Build docker image') {
            dockerImage = docker.build("oussama00001/testjenkins:latest")
           }
@@ -36,7 +37,7 @@ pipeline {
             dockerImage.push()
                     }
                }   
-
+        }
 
         stage('SonarQube Scanner') {
             steps {
