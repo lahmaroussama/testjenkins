@@ -30,7 +30,7 @@ pipeline {
         
         stage('Build docker image') {
             steps{
-           dockerImage = docker.build("oussama00001/testjenkins:latest")
+         def  dockerImage = docker.build("oussama00001/testjenkins:latest")
             }
           }
     
