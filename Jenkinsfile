@@ -11,7 +11,7 @@ pipeline {
     }
     stages {
 
-     
+      
         stage('Build and Test') {
             steps {
                 // Set up JDK and Maven in Jenkins Global Tool Configuration.
@@ -27,6 +27,9 @@ pipeline {
 
             }
         }
+        stage('Clone repository') {
+        git credentialsId: 'git', url: 'https://github.com/lahmaroussama/testjenkins'
+    }
          stage('Build Docker Image') {
             steps {
                 script {
