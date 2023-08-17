@@ -27,34 +27,15 @@ pipeline {
 
             }
         }
-     stage('Build and Push Docker Image') {
-            steps {
-                script {
-                    // Build the Docker image
-                    sh 'docker build -t oussama00001/testjenkins .'
-                    
-                    // Push the Docker image to a registry
-                    withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com') {
-                        sh 'docker push oussama00001/testjenkins'
-                    }
-                }
-            }
+  stage('Build image') {
+       dockerImage = docker.build("oussama00001/testjenkins:latest")
+    }
+    
+ stage('Push image') {
+        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+        dockerImage.push()
         }
-        stage('Build Docker Image') {
-      steps {
-        sh 'docker build -t oussama00001/testjenkins .'
-      }
-    }
-    stage('Login Docker Image') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-      }
-    }
-    stage('Push Docker Image') {
-      steps {
-        sh 'docker push oussama00001/jenkins-docker-hub'
-      }
-    }
+    } 
 
 
         stage('SonarQube Scanner') {
