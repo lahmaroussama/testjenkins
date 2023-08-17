@@ -28,8 +28,14 @@ pipeline {
             }
         }
         stage('Clone repository') {
-        git credentialsId: 'git', url: 'https://github.com/lahmaroussama/testjenkins'
-    }
+                steps {
+                script {
+                     git credentialsId: 'git', url: 'https://github.com/lahmaroussama/testjenkins'
+                }
+            }
+        }
+       
+    
          stage('Build Docker Image') {
             steps {
                 script {
