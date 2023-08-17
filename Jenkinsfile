@@ -35,7 +35,7 @@ pipeline {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
         dockerImage.push()
         }
-    } 
+    }   
 
 
         stage('SonarQube Scanner') {
