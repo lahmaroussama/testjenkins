@@ -27,6 +27,22 @@ pipeline {
 
             }
         }
+         stage('Build Docker Image') {
+            steps {
+                script {
+                    def dockerImage = docker.build("oussama00001/testjenkins:latest")
+                }
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('', DOCKERHUB_CREDENTIALS) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
         
      
         
