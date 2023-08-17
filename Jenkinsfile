@@ -27,19 +27,12 @@ pipeline {
 
             }
         }
-        stage('Clone repository') {
-                steps {
-                script {
-                     git credentialsId: 'git', url: 'https://github.com/lahmaroussama/testjenkins'
-                }
-            }
-        }
-       
+        
     
          stage('Build Docker Image') {
             steps {
                 script {
-                    def dockerImage = docker.build("oussama00001/testjenkins:latest")
+                    'docker build -t oussama00001/testjenkins .'
                 }
             }
         }
