@@ -28,19 +28,7 @@ pipeline {
             }
         }
         
-        stage('Build docker image') {
-            steps{
-         def  dockerImage = docker.build("oussama00001/testjenkins:latest")
-            }
-          }
-    
-         stage('Push docker image') {
-             steps{
-            withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-            dockerImage.push()
-                    }
-               }   
-         }
+     
         
 
         stage('SonarQube Scanner') {
