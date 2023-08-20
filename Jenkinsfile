@@ -6,7 +6,7 @@ pipeline {
         NEXUS_URL = "172.18.0.4:8081"
         NEXUS_REPOSITORY = "maven-repo"
         NEXUS_CREDENTIAL_ID = "nexus-user"
-     
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
 
     }
     stages {
