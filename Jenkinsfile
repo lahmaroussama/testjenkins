@@ -30,25 +30,7 @@ pipeline {
         
     
        
-         stage('Build Docker Image') {
-            steps {
-                script {
-                    sh 'docker build -t oussama00001/testjenkins .'
-                }
-            }
-        }
-        stage('Login') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-      }
-    }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                     sh 'docker push oussama00001/testjenkins'
-                    }
-                }
-            }
+      
         
      
         
