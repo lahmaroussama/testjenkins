@@ -48,6 +48,21 @@ pipeline {
                     }
                 }
             }
+        stage('Pull Image') {
+            steps {
+                script {
+                    docker.image('oussama00001/testjenkins').pull()
+                }
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                script {
+                    docker.run('-p 8082:80', '--name firstimage', 'oussama00001/testjenkins')
+                }
+            }
+        }
 
       
         
