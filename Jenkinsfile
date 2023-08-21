@@ -52,7 +52,7 @@ pipeline {
         stage('Pull Image') {
             steps {
                 script {
-                    docker.image('oussama00001/testjenkins').pull()
+                    sh 'docker pull oussama00001/testjenkins'
                      sh 'echo "plull succ"'
                 }
             }
@@ -61,8 +61,8 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 script {
-                     sh 'echo "deply started"'
-                    docker.run('-p 8082:80', '--name firstimage', 'oussama00001/testjenkins')
+                    
+                  sh 'docker run -d -p 8082:80 --name my-deployed-container oussama00001/testjenkins'
                     
                 }
             }
