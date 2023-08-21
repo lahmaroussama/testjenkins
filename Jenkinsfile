@@ -9,7 +9,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
 
     }
-    stages {
+    stages { 
 
       
         stage('Build and Test') {
