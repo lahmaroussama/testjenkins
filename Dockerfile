@@ -1,3 +1,11 @@
-FROM alpine:3.13.5
+# Use an appropriate base image
+FROM openjdk:11
 
-CMD ["tail", "-f", "/dev/null"]
+# Set the working directory
+WORKDIR /app
+
+# Copy the project files into the container
+COPY testjenkins /app
+
+# Build and run your application
+CMD ["./gradlew", "run"]
