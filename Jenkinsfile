@@ -28,51 +28,6 @@ pipeline {
             }
         }
         
-    
-         stage('Build Docker Image') {
-            steps {
-                script {
-                    sh 'docker build -t oussama00001/testjenkins .'
-                }
-            }
-        }
-        stage('Login') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-      }
-    }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                     sh 'docker push oussama00001/testjenkins'
-                    }
-                }
-            }
-        
-        stage('Pull Image') {
-            steps {
-                script {
-                    sh 'docker pull oussama00001/testjenkins'
-                     sh 'echo "plull succ"'
-                }
-            }
-        }
-
-        stage('Deploy Container') {
-            steps {
-                script {
-                    
-                  sh 'docker run -d -p 8082:80 --name my-deployed-container oussama00001/testjenkins'
-                    
-                }
-            }
-        }
-
-      
-        
-     
-        
-
         stage('SonarQube Scanner') {
             steps {
                 // Use the specified Maven installation
@@ -124,6 +79,52 @@ pipeline {
                 }
             }
         }
+        
+    
+         stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t oussama00001/testjenkins .'
+                }
+            }
+        }
+        stage('Login') {
+      steps {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+    }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                     sh 'docker push oussama00001/testjenkins'
+                    }
+                }
+            }
+        
+        stage('Pull Image') {
+            steps {
+                script {
+                    sh 'docker pull oussama00001/testjenkins'
+                     sh 'echo "plull succ"'
+                }
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                script {
+                    
+                  sh 'docker run -d -p 8082:80 --name my-deployed-container oussama00001/testjenkins'
+                    
+                }
+            }
+        }
+
+      
+        
+     
+        
+
           
 
     }
